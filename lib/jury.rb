@@ -8,7 +8,6 @@ class Jury
 	def add_member(member)
 		@member = member
 		@members << member
-
 	end
 
 	def members
@@ -20,20 +19,20 @@ class Jury
 		finalists.each {|finalist| finalists_votes[finalist] = 0}
 		@members.each do |member|
 			votes = finalists.sample
-			puts "#{member}"
+			puts "#{member.name.capitalize}"
 			finalists_votes[votes] += 1
 		end
 		return finalists_votes
 	end
 
 	def report_votes(final_votes)
-		final_votes.each {|key,votes| puts "#{key.to_s.capitalize} got #{votes} votes"}
+		final_votes.each {|key,votes| puts "#{key.name.capitalize} got #{votes} votes"}
 	end
 
 	def announce_winner(final_votes)
 		final_votes.each do |key, votes|
 			if votes >= 4
-				puts "The winner is #{key}"
+				puts "The winner is #{key.name.capitalize}"
 				return key
 			end
 	 	end

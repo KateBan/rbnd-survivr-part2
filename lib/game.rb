@@ -21,7 +21,7 @@ class Game
 		all_members = [] 
 		@tribes.each {|tribe| all_members += tribe.members}
 		clear_tribes
-		new_tribe = (Tribe.new({name: merged_tribe, members: all_members}))
+		new_tribe = Tribe.new({name: merged_tribe, members: all_members})
 		add_tribe(new_tribe)
 		return new_tribe
 	end
