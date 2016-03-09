@@ -1,3 +1,5 @@
+require 'colorizr'
+
 class Jury
 	attr_accessor :members
 
@@ -19,7 +21,7 @@ class Jury
 		finalists.each {|finalist| finalists_votes[finalist] = 0}
 		@members.each do |member|
 			votes = finalists.sample
-			puts "#{member.name.capitalize}"
+			puts "#{member.name.capitalize} voted for #{votes.name.capitalize}"
 			finalists_votes[votes] += 1
 		end
 		return finalists_votes
@@ -32,7 +34,7 @@ class Jury
 	def announce_winner(final_votes)
 		final_votes.each do |key, votes|
 			if votes >= 4
-				puts "The winner is #{key.name.capitalize}"
+				puts "The winner is #{key.name.capitalize}".red
 				return key
 			end
 	 	end

@@ -1,3 +1,4 @@
+require 'colorizr'
 require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
@@ -23,9 +24,9 @@ def phase_one
 	puts "Phase 1"
 	8.times do
 		tribe_lost = @borneo.immunity_challenge
-		puts "#{tribe_lost.name} lost the game for immunity."
+		puts "#{tribe_lost.name} lost the game for immunity.".green
 		member_voted_out = tribe_lost.tribal_council
-		puts "The tribe has spoken! #{member_voted_out.name.capitalize} it is time to go! "
+		puts "The tribe has spoken! #{member_voted_out.name.capitalize} it is time to go!".green
 		puts
 	end
 end
@@ -34,9 +35,9 @@ def phase_two
 	puts "Phase 2"
 	3.times do
 		immune = @borneo.individual_immunity_challenge
-		puts "#{immune.name.capitalize} won the game for individual immunity!"
+		puts "#{immune.name.capitalize} won the game for individual immunity!".pink
 		member_voted_out = @merge_tribe.tribal_council(immune: immune)
-		puts "The tribe has spoken! #{member_voted_out.name.capitalize} it is time to go! "
+		puts "The tribe has spoken! #{member_voted_out.name.capitalize} it is time to go!".pink
 		puts
 	end
 end
@@ -45,9 +46,9 @@ def phase_three
 	puts "Phase 3"
 	7.times do
 		immune = @borneo.individual_immunity_challenge
-		puts "#{immune.name.capitalize} won the game for individual immunity!"
+		puts "#{immune.name.capitalize} won the game for individual immunity!".light_blue
 		member_voted_out = @merge_tribe.tribal_council(immune: immune)
-		puts "The tribe has spoken! #{member_voted_out.name.capitalize} it is time to go! "
+		puts "The tribe has spoken! #{member_voted_out.name.capitalize} it is time to go!".light_blue
 		@jury.add_member(member_voted_out)
 		puts "#{member_voted_out.name.capitalize} joined the jury."
 		puts

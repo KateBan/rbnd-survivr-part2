@@ -1,10 +1,11 @@
+require 'colorizr'
 class Tribe
 	attr_reader :name, :members
 	
 	def initialize(options = {})
 		@name = options[:name]
 		@members = options[:members]
-		puts "Tribe #{name} created."
+		puts "Tribe #{name} was created.".green
 	end
 
 	def name
